@@ -6,10 +6,7 @@ const User = require('../User');
 let server;
 let userId;
 
-beforeAll(async () => {
-	server = app.listen(5000);
-	await db.sync();
-});
+beforeAll(() => server = app.listen(5000));
 
 afterAll(async () => {
 	const user = await User.findByPk(userId);
