@@ -12,8 +12,8 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-	// const user = await User.findByPk(userId);
-	// await user.destroy();
+	const user = await User.findByPk(userId);
+	await user.destroy();
 
 	await server.close();
 	await db.close();
