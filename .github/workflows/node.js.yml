@@ -34,5 +34,5 @@ jobs:
         DB: test
         PG_USER: user
         PG_PASSWORD: password
-        HOST: postgres
+        HOST: localhost
         POSTGRES_PORT: 5432
