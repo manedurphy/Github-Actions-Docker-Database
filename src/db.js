@@ -6,6 +6,6 @@ const sequelize = new Sequelize(process.env.DB, process.env.PG_USER, process.env
 	logging: true
 });
 
-sequelize.sync();
+sequelize.authenticate();
 
 module.exports = sequelize;
