@@ -9,3 +9,4 @@ const sequelize = new Sequelize(process.env.DB, process.env.PG_USER, process.env
 sequelize.sync();
 
 module.exports = sequelize;
+// small change
