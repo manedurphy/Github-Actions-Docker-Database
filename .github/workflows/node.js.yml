@@ -1,0 +1,38 @@
+name: PostgreSQL Node example
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: node:15-alpine
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: test
+          options: >-
+           --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+          
+
+    steps:
+    - name: Check out repo code
+      uses: actions/checkout@v2
+      
+    - name: Install deps
+      run: npm install
+      
+    - name: Run tests
+      run:  npm test
+      
+      env:
+        DB: test
+        PG_USER: user
+        PG_PASSWORD: password
+        HOST: postgres
+        POSTGRES_PORT: 5432
